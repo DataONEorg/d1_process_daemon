@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.dataone</groupId>
-    <artifactId>d1_batch_daemon</artifactId>
-    <name>DataONE_Batch_Daemon</name>
+    <artifactId>d1_process_daemon</artifactId>
+    <name>DataONE_Process_Daemon</name>
     <version>0.6.4-SNAPSHOT</version>
-    <description>Dataone Cn Batch Processing Daemon</description>
+    <description>Dataone Cn Processing Daemon</description>
     <url>http://dataone.org</url>
     <properties>
         <org.springframework.version>3.0.5.RELEASE</org.springframework.version>
