@@ -25,7 +25,7 @@
         <property name="targetMethod" value="initLogging" />
         <property name="arguments">
             <list>
-                <value>file:/etc/dataone/batch/log4j.properties</value>
+                <value>file:/etc/dataone/process/log4j.properties</value>
             </list>
         </property>
     </bean>
@@ -33,20 +33,14 @@
     class="org.springframework.beans.factory.config.CommonsLogFactoryBean">
         <property name="logName" value="log"/>
     </bean>
-    <bean id="log4jInitializationRedirectStdOutErr"
-     class="org.dataone.cn.batch.daemon.utils.StdOutErrLog" />
+    <bean id="log4jInitializationRedirectStdOutErr" class="org.dataone.cn.batch.daemon.utils.StdOutErrLog" init-method="init"/>
 
-    <bean id="contextSourceConfiguration" class="org.dataone.cn.batch.ldap.ContextSourceConfiguration" />
-
-    <bean id="contextSource" class="org.springframework.ldap.core.support.LdapContextSource"
-        factory-bean="contextSourceConfiguration" factory-method="getLdapContextSource" />
-    <bean id="ldapTemplate" class="org.springframework.ldap.core.LdapTemplate">
-        <constructor-arg ref="contextSource" />
-       <!-- <qualifier value="ldapTemplate"/> -->
+    <bean id="hazelcastLdapStore" class="org.dataone.cn.hazelcast.ldap.HazelcastLdapStore">
+        <qualifier value="hazelcastLdapStore"/>
     </bean>
     <context:annotation-config/>
-    <context:component-scan base-package="org.dataone.cn.batch.ldap.impl"  />
-    <import resource="file:/etc/dataone/batch/hazelcast.xml" />
+
+    <import resource="file:/etc/dataone/process/hazelcast.xml" />
 
 
         <bean id="harvester" class="org.dataone.cn.batch.synchronization.HarvestSchedulingManager" init-method="init" >
@@ -58,9 +52,10 @@
 
         <bean name="nodeCommFactory" class="org.dataone.cn.batch.synchronization.NodeCommD1ClientFactory" />
         <bean id="threadPoolTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
-            <property name="corePoolSize" value="5" />
-            <property name="maxPoolSize" value="10" />
-            <property name="queueCapacity" value="25" />
+            <property name="corePoolSize" value="50" />
+            <property name="maxPoolSize" value="500" />
+            <property name="keepAliveSeconds" value="120" />
+            <property name="allowCoreThreadTimeOut" value="true" />
             <property name="rejectedExecutionHandler" ref="rejectionExecutionHander" />
             <property name="daemon" value="true" />
             <property name="waitForTasksToCompleteOnShutdown" value="true" />
@@ -74,5 +69,5 @@
         <bean id="syncObjectExecutor" class="org.dataone.cn.batch.synchronization.SyncObjectExecutor" init-method="init" >
             <property name="syncObjectTask" ref="syncObjectTask" />
         </bean>
- 
+
     </beans>
