@@ -42,7 +42,8 @@
 
     <import resource="file:/etc/dataone/process/hazelcast.xml" />
 
-
+    <bean id="replicationManager" class="org.dataone.service.cn.replication.v1.ReplicationManager" init-method="init" />
+ 
         <bean id="harvester" class="org.dataone.cn.batch.synchronization.HarvestSchedulingManager" init-method="init" >
             <property name="hazelcast" ref="hazelcastInstance" />
             <property name="hazelcastLdapStore" ref="hazelcastLdapStore" />
@@ -70,5 +71,4 @@
             <property name="syncObjectTask" ref="syncObjectTask" />
         </bean>
         
-        <bean id="replicationManager" class="org.dataone.service.cn.replication.v1.ReplicationManager" lazy-init="false" />
     </beans>
