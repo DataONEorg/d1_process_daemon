@@ -175,12 +175,14 @@
             <artifactId>d1_synchronization</artifactId>
             <version>0.6.4-SNAPSHOT</version>
             <type>jar</type>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.dataone</groupId>
             <artifactId>d1_replication</artifactId>
             <version>0.6.4-SNAPSHOT</version>
             <type>jar</type>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
