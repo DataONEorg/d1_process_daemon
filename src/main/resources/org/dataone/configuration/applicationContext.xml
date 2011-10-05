@@ -69,5 +69,6 @@
         <bean id="syncObjectExecutor" class="org.dataone.cn.batch.synchronization.SyncObjectExecutor" init-method="init" >
             <property name="syncObjectTask" ref="syncObjectTask" />
         </bean>
-
+        
+        <bean id="replicationManager" class="org.dataone.service.cn.replication.v1.ReplicationManager" lazy-init="false" />
     </beans>
