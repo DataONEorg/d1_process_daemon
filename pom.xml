@@ -4,7 +4,7 @@
     <groupId>org.dataone</groupId>
     <artifactId>d1_process_daemon</artifactId>
     <name>DataONE_Process_Daemon</name>
-    <version>0.6.4-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <description>Dataone Cn Processing Daemon</description>
     <url>http://dataone.org</url>
     <properties>
@@ -173,14 +173,14 @@
         <dependency>
             <groupId>org.dataone</groupId>
             <artifactId>d1_synchronization</artifactId>
-            <version>0.6.4-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.dataone</groupId>
             <artifactId>d1_replication</artifactId>
-            <version>0.6.4-SNAPSHOT</version>
+            <version>1.0.0-SNAPSHOT</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
