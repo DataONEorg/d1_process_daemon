@@ -19,8 +19,6 @@ package org.dataone.cn.batch.daemon;
 
 /* @version $Id: ServiceDaemon.java 897078 2010-01-08 01:52:47Z sebb $ */
 import java.util.Collection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.commons.daemon.Daemon;
 import org.apache.commons.daemon.DaemonContext;
 
@@ -30,8 +28,6 @@ import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 
 /**
  * Implements Apache Commons Daemon interface.
@@ -75,9 +71,8 @@ public class SchedulerDaemon implements Daemon {
     @Override
     public void start() {
         /* Dump a message */
-        System.out.println("ServiceDaemon: starting");
+          System.out.println("ServiceDaemon: starting");
 
-//        context = new FileSystemXmlApplicationContext(appContextLocation);
           context = new ClassPathXmlApplicationContext(new String[]{"/org/dataone/configuration/applicationContext.xml"});
           System.out.println("ServiceDaemon: started");
     }
