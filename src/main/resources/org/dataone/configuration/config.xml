@@ -8,5 +8,6 @@
         <properties fileName="auth.properties"/>
         
         <properties fileName="file:/etc/dataone/process/synchronization.properties"/>
+        <properties fileName="file:/etc/dataone/process/logAggregation.properties"/>
         <properties fileName="file:/etc/dataone/node.properties"/>
 </configuration>
