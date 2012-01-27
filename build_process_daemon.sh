@@ -15,7 +15,7 @@
 # This script is specifically for d1_process_daemon, and so it assumes all paths relative to
 # that directory
 pwd
-ROOT_PROJECTS=(d1_common_java d1_libclient_java)
+ROOT_PROJECTS=(d1_common_java d1_libclient_java d1_identity_manager)
 
 NUM_ROOT_PROJECTS=${#ROOT_PROJECTS[@]}
 #root of the trunk directory is two levels before d1_process_daemon
