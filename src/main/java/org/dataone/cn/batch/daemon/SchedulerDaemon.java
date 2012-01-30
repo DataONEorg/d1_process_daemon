@@ -18,6 +18,7 @@ package org.dataone.cn.batch.daemon;
  */
 
 /* @version $Id: ServiceDaemon.java 897078 2010-01-08 01:52:47Z sebb $ */
+import com.hazelcast.core.Hazelcast;
 import java.util.Collection;
 import org.apache.commons.daemon.Daemon;
 import org.apache.commons.daemon.DaemonContext;
@@ -93,7 +94,8 @@ public class SchedulerDaemon implements Daemon {
         } catch (SchedulerException ex) {
             System.err.println("Shutting down Quartz scheduler failed: " + ex.getMessage());
         }
-
+        Hazelcast.shutdownAll();
+        
     }
 
     @Override
