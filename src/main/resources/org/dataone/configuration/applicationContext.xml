@@ -37,7 +37,7 @@
 
     <bean name="rejectionExecutionHander" class="java.util.concurrent.ThreadPoolExecutor$AbortPolicy" />
 
-    <bean id="hazelcastLdapStore" class="org.dataone.cn.hazelcast.ldap.HazelcastLdapStore">
+    <bean id="hazelcastLdapStore" class="org.dataone.cn.hazelcast.HazelcastLdapStore">
         <qualifier value="hazelcastLdapStore"/>
     </bean>
     <context:annotation-config/>
@@ -48,7 +48,7 @@
     </bean>
     <import resource="file:/etc/dataone/process/hazelcast.xml" />
 
-    <bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.CommonsHttpSolrServer">
+    <bean id="localhostSolrServer" class="org.apache.solr.client.solrj.impl.CommonsHttpSolrServer">
         <constructor-arg index="0"  value="${LogAggregator.solrUrl}" />
         <property name="maxRetries" value="1" />
         <property name="connectionManagerTimeout"  value="30000" />
@@ -81,19 +81,21 @@
     </bean>
 
 
-    <bean id="logEntryTopicListener" class="org.dataone.cn.batch.logging.listener.LogEntryTopicListener" init-method="init">
+    <bean id="logEntryTopicListener" class="org.dataone.cn.batch.logging.listener.LogEntryTopicListener">
         <property name="hazelcast" ref="hazelcastInstance" />
         <property name="indexLogEntryQueue" ref="indexLogEntryQueue" />
     </bean>
     <bean id="logAggregationScheduler" class="org.dataone.cn.batch.logging.LogAggregationScheduleManager" init-method="init" >
         <property name="hazelcast" ref="hazelcastInstance" />
         <property name="hazelcastLdapStore" ref="hazelcastLdapStore" />
+        <property name="localhostSolrServer" ref="localhostSolrServer" />
+        <property name="logEntryTopicListener" ref="logEntryTopicListener" />
     </bean>
     <bean id="logEntryQueueTask" class="org.dataone.cn.batch.logging.tasks.LogEntryQueueTask" init-method="init">
         <property name="hazelcast" ref="hazelcastInstance" />
         <property name="taskExecutor" ref="logIndexingThreadPoolTaskExecutor" />
         <property name="indexLogEntryQueue" ref="indexLogEntryQueue" />
-        <property name="httpSolrServer" ref="httpSolrServer" />
+        <property name="localhostSolrServer" ref="localhostSolrServer" />
         <property name="pollingQueueTimeout" value="60" />
     </bean>
     
