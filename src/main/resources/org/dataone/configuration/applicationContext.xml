@@ -85,11 +85,17 @@
         <property name="hazelcast" ref="hazelcastInstance" />
         <property name="indexLogEntryQueue" ref="indexLogEntryQueue" />
     </bean>
+    
+    <bean id="systemMetadataEntryListener" class="org.dataone.cn.batch.logging.listener.SystemMetadataEntryListener">
+        <property name="hazelcast" ref="hazelcastInstance" />
+    </bean>
+
     <bean id="logAggregationScheduler" class="org.dataone.cn.batch.logging.LogAggregationScheduleManager" init-method="init" >
         <property name="hazelcast" ref="hazelcastInstance" />
         <property name="hazelcastLdapStore" ref="hazelcastLdapStore" />
         <property name="localhostSolrServer" ref="localhostSolrServer" />
         <property name="logEntryTopicListener" ref="logEntryTopicListener" />
+        <property name="systemMetadataEntryListener" ref="systemMetadataEntryListener" />
     </bean>
     <bean id="logEntryQueueTask" class="org.dataone.cn.batch.logging.tasks.LogEntryQueueTask" init-method="init">
         <property name="hazelcast" ref="hazelcastInstance" />
