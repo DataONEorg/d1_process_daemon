@@ -46,8 +46,3 @@ done
 
 pwd
 ## copy the executable process daemon jar to buildout location
-
-cp d1_process_daemon/d1_process_daemon.jar ../cn-buildout/dataone-cn-processdaemon/usr/share/dataone-cn-processdaemon
-
-
-
