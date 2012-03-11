@@ -55,7 +55,7 @@
         <property name="daemon" value="true" />
     </bean>
     
-<!--
+
     <bean id="localhostSolrServer" class="org.apache.solr.client.solrj.impl.CommonsHttpSolrServer">
         <constructor-arg index="0"  value="${LogAggregator.solrUrl}" />
         <property name="maxRetries" value="1" />
@@ -109,7 +109,7 @@
         <property name="taskExecutor" ref="simpleAsyncTaskExecutor" />
         <property name="logEntryQueueTask" ref="logEntryQueueTask" />
     </bean>
--->
+
     <bean id="replicationManager" class="org.dataone.service.cn.replication.v1.ReplicationManager" init-method="init" />
     
     <bean id="replicationEventListener" class="org.dataone.service.cn.replication.v1.ReplicationEventListener" init-method="init">
