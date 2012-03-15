@@ -55,11 +55,13 @@
         <property name="daemon" value="true" />
     </bean>
     
-
+    <bean id="propConnectionManagerTimeout" class="java.lang.Long">
+        <constructor-arg index="0"  value="30000" />
+    </bean>
     <bean id="localhostSolrServer" class="org.apache.solr.client.solrj.impl.CommonsHttpSolrServer">
         <constructor-arg index="0"  value="${LogAggregator.solrUrl}" />
         <property name="maxRetries" value="1" />
-        <property name="connectionManagerTimeout"  value="30000" />
+        <property name="connectionManagerTimeout"  ref="propConnectionManagerTimeout" />
         <property name="soTimeout" value="30000" />
     </bean>
 
