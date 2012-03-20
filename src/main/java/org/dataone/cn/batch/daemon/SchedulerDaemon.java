@@ -20,7 +20,6 @@ package org.dataone.cn.batch.daemon;
 /* @version $Id: ServiceDaemon.java 897078 2010-01-08 01:52:47Z sebb $ */
 import com.hazelcast.core.Hazelcast;
 import java.util.Collection;
-import java.util.Iterator;
 import org.apache.commons.daemon.Daemon;
 import org.apache.commons.daemon.DaemonContext;
 import org.dataone.cn.ldap.NodeAccess;
@@ -28,11 +27,9 @@ import org.dataone.cn.ldap.ProcessingState;
 import org.dataone.configuration.Settings;
 
 
-import org.dataone.service.exceptions.ServiceFailure;
 import org.dataone.service.types.v1.NodeReference;
 
 import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
 import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.context.ApplicationContext;
