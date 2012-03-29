@@ -111,12 +111,13 @@
         <property name="taskExecutor" ref="simpleAsyncTaskExecutor" />
         <property name="logEntryQueueTask" ref="logEntryQueueTask" />
     </bean>
-
+<!--
     <bean id="replicationManager" class="org.dataone.service.cn.replication.v1.ReplicationManager" init-method="init" />
     
     <bean id="replicationEventListener" class="org.dataone.service.cn.replication.v1.ReplicationEventListener" init-method="init">
         <property name="replicationManager" ref="replicationManager" />
     </bean>
+    -->
     <bean id="harvester" class="org.dataone.cn.batch.synchronization.HarvestSchedulingManager" init-method="init" >
         <property name="hazelcast" ref="hazelcastInstance" />
         <property name="hazelcastLdapStore" ref="hazelcastLdapStore" />
