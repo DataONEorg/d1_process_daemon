@@ -79,7 +79,7 @@ public class SchedulerDaemon implements Daemon {
     public void start() {
         /* Dump a message */
           System.out.println("ServiceDaemon: starting");
-          context = new FileSystemXmlApplicationContext(new String[]{appContextLocation});
+          context = new FileSystemXmlApplicationContext(appContextLocation);
 //          context = new ClassPathXmlApplicationContext(new String[]{"/org/dataone/configuration/applicationContext.xml"});
           System.out.println("ServiceDaemon: started");
     }
