@@ -46,7 +46,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  */
 public class SchedulerDaemon implements Daemon {
 
-    private String appContextLocation = "/etc/dataone/process/applicationContext.xml";
+    private String appContextLocation = "file:/etc/dataone/process/applicationContext.xml";
     private ApplicationContext context;
     static final String localCnIdentifier = Settings.getConfiguration().getString("cn.nodeId");
     public SchedulerDaemon() {
