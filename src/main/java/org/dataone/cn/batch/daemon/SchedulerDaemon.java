@@ -34,6 +34,7 @@ import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 /**
  * Implements Apache Commons Daemon interface.
@@ -45,7 +46,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class SchedulerDaemon implements Daemon {
 
-    private String appContextLocation = "file:/etc/dataone/batch/applicationContext.xml";
+    private String appContextLocation = "/etc/dataone/process/applicationContext.xml";
     private ApplicationContext context;
     static final String localCnIdentifier = Settings.getConfiguration().getString("cn.nodeId");
     public SchedulerDaemon() {
@@ -78,8 +79,8 @@ public class SchedulerDaemon implements Daemon {
     public void start() {
         /* Dump a message */
           System.out.println("ServiceDaemon: starting");
-
-          context = new ClassPathXmlApplicationContext(new String[]{"/org/dataone/configuration/applicationContext.xml"});
+          context = new FileSystemXmlApplicationContext(new String[]{appContextLocation});
+//          context = new ClassPathXmlApplicationContext(new String[]{"/org/dataone/configuration/applicationContext.xml"});
           System.out.println("ServiceDaemon: started");
     }
 
