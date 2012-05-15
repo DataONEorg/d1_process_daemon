@@ -45,4 +45,3 @@ for ((i=0;i<$NUM_CN_PROJECTS;i++)); do
 done
 
 pwd
-## copy the executable process daemon jar to buildout location

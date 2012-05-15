@@ -28,14 +28,15 @@ import org.apache.log4j.Logger;
 /**
  *
  * @author rwaltz
+ * @see 
  */
 public class StdOutErrLog {
 private static final Logger logger = Logger.getLogger(StdOutErrLog.class);
      public  void init() {
-        System.setOut(createLoggingProxy(System.out));
-        System.setErr(createLoggingProxy(System.err));
+        System.setOut(createSystemOutLoggingProxy(System.out));
+        System.setErr(createSystemErrLoggingProxy(System.err));
     }
-    public PrintStream createLoggingProxy(final PrintStream realPrintStream) {
+    public PrintStream createSystemOutLoggingProxy(final PrintStream realPrintStream) {
         return new PrintStream(realPrintStream) {
             public void print(final String string) {
                 realPrintStream.print(string);
@@ -43,6 +44,13 @@ private static final Logger logger = Logger.getLogger(StdOutErrLog.class);
             }
         };
     }
-
+    public PrintStream createSystemErrLoggingProxy(final PrintStream realPrintStream) {
+        return new PrintStream(realPrintStream) {
+            public void print(final String string) {
+                realPrintStream.print(string);
+                logger.error(string);
+            }
+        };
+    }
 
 }
