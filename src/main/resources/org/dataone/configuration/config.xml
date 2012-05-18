@@ -16,10 +16,7 @@
         <reloadingStrategy refreshDelay="5000"
                                config-class="org.apache.commons.configuration.reloading.FileChangedReloadingStrategy"/>
     </properties>
-    <properties fileName="file:/etc/dataone/node.properties">
-    	<reloadingStrategy refreshDelay="5000"
-    							config-class="org.apache.commons.configuration.reloading.FileChangedReloadingStrategy"/>
-    </properties>
+    <properties fileName="file:/etc/dataone/node.properties" />
 
     <properties fileName="file:/etc/dataone/process/d1client.properties" />
 
