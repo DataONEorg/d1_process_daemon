@@ -16,14 +16,12 @@
         <reloadingStrategy refreshDelay="5000"
                                config-class="org.apache.commons.configuration.reloading.FileChangedReloadingStrategy"/>
     </properties>
-    <properties fileName="file:/etc/dataone/node.properties">
-    	<reloadingStrategy refreshDelay="5000"
-    							config-class="org.apache.commons.configuration.reloading.FileChangedReloadingStrategy"/>
-    </properties>
+    
     <properties fileName="d1client.properties"/>
     <properties fileName="ldapService.properties"/>
     <properties fileName="registryLdap.properties"/>
     <properties fileName="identityLdap.properties"/>
     <properties fileName="auth.properties"/>
     <properties fileName="reserveIdentifier.properties"/>
+    <properties fileName="file:/etc/dataone/node.properties"/>
 </configuration>
