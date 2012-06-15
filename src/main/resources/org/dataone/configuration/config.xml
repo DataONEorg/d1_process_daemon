@@ -24,7 +24,7 @@
     
     <properties fileName="file:/etc/dataone/node.properties" />
     
-    <properties fileName="ldapService.properties"/>
+    <properties fileName="file:/etc/dataone/ldapService.properties"/>
     <properties fileName="registryLdap.properties"/>
     <properties fileName="identityLdap.properties"/>
     <properties fileName="auth.properties"/>
