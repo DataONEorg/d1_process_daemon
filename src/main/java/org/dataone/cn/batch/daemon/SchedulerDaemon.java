@@ -60,7 +60,8 @@ public class SchedulerDaemon implements Daemon {
     }
 
     @Override
-    protected void finalize() {
+    protected void finalize() throws Throwable {
+        super.finalize();
         System.out.println("ServiceDaemon: instance " + this.hashCode()
                 + " garbage collected");
     }
