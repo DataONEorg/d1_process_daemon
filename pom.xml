@@ -16,6 +16,7 @@
         <d1_log_aggregation_version>1.2.0-SNAPSHOT</d1_log_aggregation_version>
         <d1_synchronization_version>1.2.0-SNAPSHOT</d1_synchronization_version>
         <d1_replication_version>1.2.0-SNAPSHOT</d1_replication_version>
+        <d1_replication_auditor_version>0.0.1-SNAPSHOT</d1_replication_auditor_version>
     </properties>
     <packaging>jar</packaging>
     <build>
@@ -219,6 +220,13 @@
             <groupId>org.dataone</groupId>
             <artifactId>d1_replication</artifactId>
             <version>${d1_replication_version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.dataone</groupId>
+            <artifactId>d1_replication_auditor</artifactId>
+            <version>${d1_replication_auditor_version}</version>
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
