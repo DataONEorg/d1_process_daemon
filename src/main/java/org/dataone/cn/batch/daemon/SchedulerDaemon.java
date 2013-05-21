@@ -29,7 +29,7 @@ import org.apache.commons.daemon.DaemonContext;
 import org.dataone.cn.ldap.NodeAccess;
 import org.dataone.cn.ldap.ProcessingState;
 import org.dataone.configuration.Settings;
-import org.dataone.service.cn.replication.v1.audit.ScheduledReplicationAuditController;
+import org.dataone.service.cn.replication.auditor.v1.ScheduledReplicationAuditController;
 import org.dataone.service.types.v1.NodeReference;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerFactory;
