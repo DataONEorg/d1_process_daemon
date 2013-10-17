@@ -29,7 +29,6 @@ import org.apache.commons.daemon.DaemonContext;
 import org.dataone.cn.ldap.NodeAccess;
 import org.dataone.cn.ldap.ProcessingState;
 import org.dataone.configuration.Settings;
-import org.dataone.service.cn.replication.auditor.v1.ScheduledReplicationAuditController;
 import org.dataone.service.types.v1.NodeReference;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerFactory;
@@ -52,9 +51,6 @@ public class SchedulerDaemon implements Daemon {
     private String appContextLocation = "file:/etc/dataone/process/applicationContext.xml";
     private ApplicationContext context;
     static final String localCnIdentifier = Settings.getConfiguration().getString("cn.nodeId");
-
-    private static final String SCHEDULED_REPLICA_AUDIT_NAME = "scheduledReplicationAuditController";
-    private ScheduledReplicationAuditController replicationAuditScheduler;
 
     public SchedulerDaemon() {
         super();
@@ -86,8 +82,6 @@ public class SchedulerDaemon implements Daemon {
         context = new FileSystemXmlApplicationContext(appContextLocation);
         // context = new ClassPathXmlApplicationContext(new
         // String[]{"/org/dataone/configuration/applicationContext.xml"});
-
-        startScheduledReplicationAuditing();
 
         System.out.println("ServiceDaemon: started");
     }
@@ -144,28 +138,10 @@ public class SchedulerDaemon implements Daemon {
             System.err.println("Updating Process State failed");
         }
 
-        stopScheduledReplicationAuditing();
-
         System.out.println("ServiceDaemon: stopped");
     }
 
-    private void stopScheduledReplicationAuditing() {
-        if (replicationAuditScheduler != null) {
-            System.out.println("Stopping replication audit scheduler....");
-            replicationAuditScheduler.shutdown();
-        }
-    }
 
-    private void startScheduledReplicationAuditing() {
-        try {
-            replicationAuditScheduler = (ScheduledReplicationAuditController) context
-                    .getBean(SCHEDULED_REPLICA_AUDIT_NAME);
-            replicationAuditScheduler.startup();
-        } catch (Exception e) {
-            System.out.println("ServiceDaemon: unable to start Replication Audit Scheduler.");
-            e.printStackTrace();
-        }
-    }
 
     @Override
     public void destroy() {
