@@ -24,10 +24,11 @@
     </properties>
     
     <properties fileName="file:/etc/dataone/node.properties" />
-    
     <properties fileName="file:/etc/dataone/ldapService.properties"/>
     <properties fileName="registryLdap.properties"/>
     <properties fileName="identityLdap.properties"/>
     <properties fileName="auth.properties"/>
     <properties fileName="reserveIdentifier.properties"/>
+
+    <properties fileName="file:/var/lib/tomcat6/webapps/metacat/WEB-INF/metacat.properties" />
 </configuration>
