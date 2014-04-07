@@ -14,7 +14,7 @@
         <quartz.version>2.1.6</quartz.version>
         <hazelcast.version>2.4.1</hazelcast.version>
         <d1_log_aggregation_version>1.2.0-SNAPSHOT</d1_log_aggregation_version>
-        <d1_synchronization_version>1.2.0-SNAPSHOT</d1_synchronization_version>
+        <d1_synchronization_version>1.3.0-SNAPSHOT</d1_synchronization_version>
         <d1_replication_version>1.2.0-SNAPSHOT</d1_replication_version>
         <d1_replication_auditor_version>0.0.1-SNAPSHOT</d1_replication_auditor_version>
     </properties>
