@@ -30,5 +30,5 @@
     <properties fileName="auth.properties"/>
     <properties fileName="reserveIdentifier.properties"/>
 
-    <properties fileName="file:/var/lib/tomcat6/webapps/metacat/WEB-INF/metacat.properties" />
+    <properties fileName="file:/var/lib/tomcat7/webapps/metacat/WEB-INF/metacat.properties" />
 </configuration>
