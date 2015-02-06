@@ -3,7 +3,7 @@
     <groupId>org.dataone</groupId>
     <artifactId>d1_process_daemon</artifactId>
     <name>DataONE_Process_Daemon</name>
-    <version>1.3.2</version>
+    <version>1.4.0</version>
     <description>Dataone Cn Processing Daemon</description>
     <url>http://dataone.org</url>
     <properties>
