@@ -12,8 +12,10 @@
         <spring.version>3.1.4.RELEASE</spring.version>
         <quartz.version>2.1.6</quartz.version>
         <hazelcast.version>2.4.1</hazelcast.version>
-        <d1_log_aggregation_version>2.0.0-SNAPSHOT</d1_log_aggregation_version>
-        <d1_synchronization_version>2.0.0-SNAPSHOT</d1_synchronization_version>
+        <d1_libclient_version>2.1.0-SNAPSHOT</d1_libclient_version>
+        <d1_cn_common_version>2.1.0-SNAPSHOT</d1_cn_common_version>
+        <d1_log_aggregation_version>2.1.0-SNAPSHOT</d1_log_aggregation_version>
+        <d1_synchronization_version>2.1.0-SNAPSHOT</d1_synchronization_version>
         <d1_replication_version>2.1.0-SNAPSHOT</d1_replication_version>
         <d1_replication_auditor_version>2.1.0-SNAPSHOT</d1_replication_auditor_version>
     </properties>
@@ -83,10 +85,26 @@
                                         <exclude>META-INF/eclipse.inf</exclude>
                                     </excludes>
                                 </filter>
+                                <filter>
+                                    <artifact>com.hp.hpl.jena:jena</artifact>
+                                    <excludes>
+                                        <exclude>log4j.properties</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>org.dataone:d1_identity_manager</artifact>
+                                    <excludes>
+                                        <exclude>log4j.properties</exclude>
+                                    </excludes>
+                                </filter>
+                                
                             </filters>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>org.dataone.cn.batch.daemon.SchedulerDaemon</mainClass>
+                                    <manifestEntries>
+                                     <Class-Path>.</Class-Path>
+                                    </manifestEntries>
                                 </transformer>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
                                     <resource>META-INF/spring.handlers</resource>
@@ -247,6 +265,22 @@
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
+        <!-- d1_libclient_java jar test is included from d1-synchronization dependency -->
+        <dependency>
+            <groupId>org.dataone</groupId>
+            <artifactId>d1_libclient_java</artifactId>
+            <version>${d1_libclient_version}</version>
+            <type>test-jar</type>
+             <scope>test</scope>
+        </dependency>
+        <!-- d1_cn_common test is included from d1-replication dependency -->
+	    <dependency>
+                <groupId>org.dataone</groupId>
+                <artifactId>d1_cn_common</artifactId>
+                <version>${d1_cn_common_version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+	    </dependency>  
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
