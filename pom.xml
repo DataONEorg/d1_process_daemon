@@ -248,14 +248,6 @@
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
-        <!-- d1_libclient_java jar test is included from d1-synchronization dependency -->
-        <dependency>
-            <groupId>org.dataone</groupId>
-            <artifactId>d1_libclient_java</artifactId>
-            <version>${d1_libclient_version}</version>
-            <type>test-jar</type>
-             <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>log4j</groupId>
