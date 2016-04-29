@@ -26,11 +26,8 @@ import java.util.Collection;
 
 import org.apache.commons.daemon.Daemon;
 import org.apache.commons.daemon.DaemonContext;
-import org.dataone.cn.ldap.NodeAccess;
-import org.dataone.cn.ldap.ProcessingState;
 import org.dataone.configuration.Settings;
 import org.dataone.service.cn.replication.auditor.v1.ScheduledReplicationAuditController;
-import org.dataone.service.types.v1.NodeReference;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerFactory;
 import org.quartz.impl.StdSchedulerFactory;
@@ -134,15 +131,6 @@ public class SchedulerDaemon implements Daemon {
             System.err.println("Shutting down Quartz scheduler failed: ");
         }
         Hazelcast.shutdownAll();
-        NodeAccess nodeAccess = new NodeAccess();
-        NodeReference localNodeReference = new NodeReference();
-        localNodeReference.setValue(localCnIdentifier);
-        try {
-            nodeAccess.setProcessingState(localNodeReference, ProcessingState.Offline);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            System.err.println("Updating Process State failed");
-        }
 
         stopScheduledReplicationAuditing();
 
