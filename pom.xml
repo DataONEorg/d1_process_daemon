@@ -3,7 +3,7 @@
     <groupId>org.dataone</groupId>
     <artifactId>d1_process_daemon</artifactId>
     <name>DataONE_Process_Daemon</name>
-    <version>2.3.5</version>
+    <version>2.3.6</version>
     <description>Dataone Cn Processing Daemon</description>
     <url>http://dataone.org</url>
     <properties>
@@ -13,9 +13,9 @@
         <spring.version>3.1.4.RELEASE</spring.version>
         <quartz.version>2.1.6</quartz.version>
         <hazelcast.version>2.4.1</hazelcast.version>
-        <d1_log_aggregation.version>2.3.1</d1_log_aggregation.version>
-        <d1_synchronization.version>2.3.5</d1_synchronization.version>
-        <d1_replication.version>2.3.1</d1_replication.version>
+        <d1_log_aggregation.version>2.3.2</d1_log_aggregation.version>
+        <d1_synchronization.version>2.3.6</d1_synchronization.version>
+        <d1_replication.version>2.3.2</d1_replication.version>
         <d1_replication_auditor.version>2.3.1</d1_replication_auditor.version>
     </properties>
     <packaging>jar</packaging>
