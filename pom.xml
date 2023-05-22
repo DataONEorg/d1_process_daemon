@@ -14,7 +14,7 @@
         <quartz.version>2.1.6</quartz.version>
         <hazelcast.version>2.4.1</hazelcast.version>
         <d1_log_aggregation.version>2.3.2</d1_log_aggregation.version>
-        <d1_synchronization.version>2.3.8</d1_synchronization.version>
+        <d1_synchronization.version>2.3.7</d1_synchronization.version>
         <d1_replication.version>2.3.2</d1_replication.version>
         <d1_replication_auditor.version>2.3.2</d1_replication_auditor.version>
     </properties>
@@ -123,8 +123,8 @@
     </build>
     <repositories>
         <repository>
-            <id>sonatype.org</id>
-            <url>https://repository.sonatype.org/content/shadows/centralm1</url>
+            <id>maven-restlet</id>
+            <url>https://maven.restlet.org</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -134,7 +134,7 @@
         </repository>
         <repository>
             <id>dataone.org</id>
-            <url>http://maven.dataone.org/</url>
+            <url>https://maven.dataone.org</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
