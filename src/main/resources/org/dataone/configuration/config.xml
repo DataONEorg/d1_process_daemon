@@ -29,4 +29,6 @@
     <properties fileName="identityLdap.properties"/>
     <properties fileName="auth.properties"/>
     <properties fileName="reserveIdentifier.properties"/>
+   
+    <properties fileName="file:/var/lib/tomcat9/webapps/metacat/WEB-INF/metacat.properties" />
 </configuration>
